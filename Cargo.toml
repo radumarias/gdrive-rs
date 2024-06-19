@@ -1,0 +1,56 @@
+[package]
+name = "gdrive-rs"
+description = "Google Drive FUSE filesystem written in Rust"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Radu Marias <radumarias@gmail.com>"]
+homepage = "https://radumarias.github.io/gdrive-rust"
+repository = "https://github.com/radumarias/gdrive-rust"
+readme = "README.md"
+keywords = ["filesystem", "fuse", "google-drive", "cloud-storage", "google"]
+categories = ["filesystem"]
+documentation = "https://docs.rs/gdrive-rust"
+exclude = [".github/"]
+
+[dependencies]
+clap = { version = "4.5.4", features = ["derive", "cargo"] }
+libc = "0.2.153"
+serde = { version = "1.0.197", features = ["derive"] }
+bincode = "1.3.3"
+thiserror = "1.0.58"
+rand = "0.8.5"
+rand_core = "0.6.4"
+base64 = "0.22.1"
+tokio = { version = "1.36", features = ["full"] }
+tokio-stream = { version = "0.1.15", features = ["fs"] }
+futures-util = "0.3.30"
+tracing = { version = "0.1.40", features = ["max_level_trace", "release_max_level_info"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2.3"
+tracing-test = "0.2.4"
+ctrlc = { version = "3.1.9", features = ["termination"] }
+anyhow = "1.0.82"
+num-format = "0.4.4"
+hex = "0.4.3"
+async-trait = "0.1.80"
+thread_local = "1.1.8"
+fuse3 = { version = "0.7.1", features = ["tokio-runtime", "unprivileged"] }
+bytes = "1.6.0"
+google-drive3 = "5.0.4+20240227"
+serde_json = "1.0.117"
+mime = "0.3.17"
+bimap = "0.6.3"
+directories = "5.0.1"
+md-5 = "0.10.6"
+atomic-write-file = "0.1.4"
+
+[package.metadata.aur]
+depends = ["fuse3"]
+
+[package.metadata.generate-rpm]
+assets = [
+    { source = "target/release/gdrive-rust", dest = "/usr/bin/gdrive-rust", mode = "644" }
+]
+[package.metadata.generate-rpm.requires]
+fuse3 = "*"
