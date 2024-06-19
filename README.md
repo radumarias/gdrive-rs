@@ -1,4 +1,5 @@
-#gdrive-rust
+# gdrive-rs
+
 A GDrive client in Rust using [fuse3](https://github.com/Sherlock-Holo/fuse3).
 
 # Run
