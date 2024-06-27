@@ -1,7 +1,7 @@
 # gdrive-rs
 
 > [!WARNING]  
-> *It's still in very early stages. Please don't use it for now.*
+> *It's still in very early stage. Please don't use it for now.*
 
 A GDrive client in Rust using [fuse3](https://github.com/Sherlock-Holo/fuse3).
 
